@@ -4,6 +4,7 @@ Imports System.Runtime.InteropServices
 Imports System.Text
 Imports System.Web
 Imports System.Xml
+Imports System.Net
 'http://labelary.com/viewer.html
 Public Class ZebraPrint
 
@@ -14,7 +15,10 @@ Public Class ZebraPrint
         <MarshalAs(UnmanagedType.LPWStr)> Public pOutputFile As String
         <MarshalAs(UnmanagedType.LPWStr)> Public pDataType As String
     End Structure
-
+    Public Enum ZebraPrintLabelFormat
+        PDF
+        PNG
+    End Enum
     <DllImport("winspool.Drv", EntryPoint:="OpenPrinterW",
        SetLastError:=True, CharSet:=CharSet.Unicode,
        ExactSpelling:=True, CallingConvention:=CallingConvention.StdCall)>
@@ -277,5 +281,47 @@ Public Class ZebraPrint
         res = res.Replace(vbNewLine, vbNullString)
         Console.WriteLine("ZPLcodeOneLine: " & res)
         Return res
+    End Function
+    ''' <summary>
+    ''' Download label image from Labelary
+    ''' </summary>
+    ''' <param name="zpl_code">ZPL code</param>
+    ''' <param name="label_width">Label width in inch</param>
+    ''' <param name="label_height">Label height in inch</param>
+    ''' <param name="format">Output format (PDF or PNG)</param>
+    Public Shared Function DownloadLabelaryImage(zpl_code As String, label_width As Integer, label_height As Integer, format As ZebraPrintLabelFormat) As String
+        Dim strOneLineCode As String
+        Dim strExt As String
+        strOneLineCode = GetZPLcodeOneLine(zpl_code)
+        Dim zpl() As Byte = Encoding.UTF8.GetBytes(strOneLineCode)
+
+        ' adjust print density (8dpmm), label width (4 inches), label height (6 inches), and label index (0) as necessary
+        Dim request As HttpWebRequest = WebRequest.Create("http://api.labelary.com/v1/printers/8dpmm/labels/" & Trim(CStr(label_width)) & "x" & Trim(CStr(label_height)) & "/0/")
+        request.Method = "POST"
+        If format = ZebraPrintLabelFormat.PDF Then
+            request.Accept = "application/pdf" ' omit this line to get PNG images back
+            strExt = ".pdf"
+        Else
+            strExt = ".png"
+        End If
+        request.ContentType = "application/x-www-form-urlencoded"
+        request.ContentLength = zpl.Length
+
+        Dim requestStream As Stream = request.GetRequestStream()
+        requestStream.Write(zpl, 0, zpl.Length)
+        requestStream.Close()
+
+        Try
+            Dim response As HttpWebResponse = request.GetResponse()
+            Dim responseStream As Stream = response.GetResponseStream()
+            Dim fileStream As Stream = File.Create("label" & strExt) ' change file name for PNG images
+
+            responseStream.CopyTo(fileStream)
+            responseStream.Close()
+            fileStream.Close()
+        Catch ex As WebException
+            Console.WriteLine("Error: {0}", ex.Status)
+        End Try
+        Return "label" & strExt
     End Function
 End Class

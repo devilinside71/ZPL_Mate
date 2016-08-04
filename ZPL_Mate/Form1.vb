@@ -1,13 +1,23 @@
 ﻿
+Imports System.IO
+Imports System.Net
+Imports System.Text
+
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.Icon = My.Resources.ZebraTL
         Call ZebraPrint.LoadPrinters()
-        'ComboBoxPrinter.Items.Clear()
-        'For Each printername In ZebraPrint.PrinterNames
-        '    ComboBoxPrinter.Items.Add(printername)
-        'Next
-        'ComboBoxPrinter.SelectedIndex = 0
+        Call ZebraPrint.LoadLabels()
+        ComboBoxPrinter.Items.Clear()
+        For Each printername In ZebraPrint.PrinterNames
+            ComboBoxPrinter.Items.Add(printername)
+        Next
+        ComboBoxPrinter.SelectedIndex = 0
+        ComboBoxPrevSamples.Items.Clear()
+        For Each lb As String In ZebraPrint.LabelNames
+            ComboBoxPrevSamples.Items.Add(lb)
+        Next
+        ComboBoxPrevSamples.SelectedIndex = 0
         Call ZebraPrint.LoadLabels()
     End Sub
     ''' <summary>
@@ -23,7 +33,7 @@ Public Class Form1
 
 
 
-        'strPrinter = ZebraPrint.PrinterWinNames(ComboBoxPrinter.SelectedIndex)
+        strPrinter = ZebraPrint.PrinterWinNames(ComboBoxPrinter.SelectedIndex)
 
         strPrintText = ZebraPrint.LabelCodes(labelsample_number)
         strPrintText = strPrintText.Replace("UTF8STR", replacement_text)
@@ -78,4 +88,23 @@ Public Class Form1
         Next
         TextBoxZebraOutput.Text = strText
     End Sub
+
+    Private Sub ComboBoxPrevSamples_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxPrevSamples.SelectedIndexChanged
+        TextBoxPrevSample.Text = ZebraPrint.LabelCodes(ComboBoxPrevSamples.SelectedIndex)
+    End Sub
+
+    Private Sub ButtonPrint_Click_1(sender As Object, e As EventArgs) Handles ButtonPrint.Click
+        Dim strPrinter As String
+        Dim res As String
+
+        strPrinter = ZebraPrint.PrinterWinNames(ComboBoxPrinter.SelectedIndex)
+        res = ZebraPrint.SendStringToPrinter(strPrinter, TextBoxPrevSample.Text)
+    End Sub
+
+    Private Sub ButtonPreview_Click(sender As Object, e As EventArgs) Handles ButtonPreview.Click
+        Dim res As String
+        res = ZebraPrint.DownloadLabelaryImage(TextBoxPrevSample.Text, NumericUpDownW.Value, NumericUpDownH.Value, ZebraPrint.ZebraPrintLabelFormat.PNG)
+        PictureBoxLabel.Image = Image.FromFile(res)
+    End Sub
+
 End Class
