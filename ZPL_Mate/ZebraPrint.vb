@@ -322,6 +322,7 @@ Public Class ZebraPrint
         Catch ex As WebException
             Console.WriteLine("Error: {0}", ex.Status)
         End Try
+        'File.Copy("label" & strExt, "label0" & strExt)
         Return "label" & strExt
     End Function
 End Class

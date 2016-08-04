@@ -103,8 +103,14 @@ Public Class Form1
 
     Private Sub ButtonPreview_Click(sender As Object, e As EventArgs) Handles ButtonPreview.Click
         Dim res As String
+        Try
+            PictureBoxLabel.Image.Dispose()
+        Catch ex As Exception
+            Console.WriteLine("Error: {0}", ex.Message)
+        End Try
         res = ZebraPrint.DownloadLabelaryImage(TextBoxPrevSample.Text, NumericUpDownW.Value, NumericUpDownH.Value, ZebraPrint.ZebraPrintLabelFormat.PNG)
         PictureBoxLabel.Image = Image.FromFile(res)
+
     End Sub
 
 End Class
