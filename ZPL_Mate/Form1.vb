@@ -19,6 +19,8 @@ Public Class Form1
         Next
         ComboBoxPrevSamples.SelectedIndex = 0
         Call ZebraPrint.LoadLabels()
+        ComboBoxResolution.SelectedIndex = 0
+        ComboBoxUnit.SelectedIndex = 0
     End Sub
     ''' <summary>
     ''' Prints label.
@@ -113,4 +115,75 @@ Public Class Form1
 
     End Sub
 
+    Private Sub ComboBoxResolution_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxResolution.SelectedIndexChanged
+        If ComboBoxResolution.SelectedIndex = 0 Then
+            TextBoxResolutionDpmm.Text = "8dpmm"
+        End If
+        If ComboBoxResolution.SelectedIndex = 1 Then
+            TextBoxResolutionDpmm.Text = "12dpmm"
+        End If
+    End Sub
+
+    Private Sub ComboBoxUnit_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxUnit.SelectedIndexChanged
+        If ComboBoxUnit.SelectedIndex = 1 Then
+            LabelCalcH1.Text = "mm"
+            LabelCalcW1.Text = "mm"
+            LabelCalcH2.Text = "dot"
+            LabelCalcW2.Text = "dot"
+        End If
+        If ComboBoxUnit.SelectedIndex = 0 Then
+            LabelCalcH1.Text = "inch"
+            LabelCalcW1.Text = "inch"
+            LabelCalcH2.Text = "dot"
+            LabelCalcW2.Text = "dot"
+        End If
+        If ComboBoxUnit.SelectedIndex = 2 Then
+            LabelCalcH1.Text = "mm"
+            LabelCalcW1.Text = "mm"
+            LabelCalcH2.Text = "inch"
+            LabelCalcW2.Text = "inch"
+        End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ButtonCalcLabel.Click
+        If ComboBoxUnit.SelectedIndex = 0 Then
+            TextBoxW1.Text = CStr(CDbl(TextBoxW.Text) / 25.4)
+            TextBoxH1.Text = CStr(CDbl(TextBoxH.Text) / 25.4)
+            If ComboBoxResolution.SelectedIndex = 0 Then
+                TextBoxW2.Text = CStr(CDbl(TextBoxW.Text) * 8)
+                TextBoxH2.Text = CStr(CDbl(TextBoxH.Text) * 8)
+            End If
+            If ComboBoxResolution.SelectedIndex = 1 Then
+                TextBoxW2.Text = CStr(CDbl(TextBoxW.Text) * 12)
+                TextBoxH2.Text = CStr(CDbl(TextBoxH.Text) * 12)
+            End If
+        End If
+        If ComboBoxUnit.SelectedIndex = 1 Then
+            TextBoxW1.Text = CStr(CDbl(TextBoxW.Text) * 25.4)
+            TextBoxH1.Text = CStr(CDbl(TextBoxH.Text) * 25.4)
+            If ComboBoxResolution.SelectedIndex = 0 Then
+                TextBoxW2.Text = CStr(CDbl(TextBoxW.Text) * 203)
+                TextBoxH2.Text = CStr(CDbl(TextBoxH.Text) * 203)
+            End If
+            If ComboBoxResolution.SelectedIndex = 1 Then
+                TextBoxW2.Text = CStr(CDbl(TextBoxW.Text) * 300)
+                TextBoxH2.Text = CStr(CDbl(TextBoxH.Text) * 300)
+            End If
+        End If
+        If ComboBoxUnit.SelectedIndex = 2 Then
+
+            If ComboBoxResolution.SelectedIndex = 0 Then
+                TextBoxW1.Text = CStr(CDbl(TextBoxW.Text) / 8)
+                TextBoxH1.Text = CStr(CDbl(TextBoxH.Text) / 8)
+                TextBoxW2.Text = CStr(CDbl(TextBoxW.Text) / 203)
+                TextBoxH2.Text = CStr(CDbl(TextBoxH.Text) / 203)
+            End If
+            If ComboBoxResolution.SelectedIndex = 1 Then
+                TextBoxW1.Text = CStr(CDbl(TextBoxW.Text) / 12)
+                TextBoxH1.Text = CStr(CDbl(TextBoxH.Text) / 12)
+                TextBoxW2.Text = CStr(CDbl(TextBoxW.Text) / 300)
+                TextBoxH2.Text = CStr(CDbl(TextBoxH.Text) / 300)
+            End If
+        End If
+    End Sub
 End Class
