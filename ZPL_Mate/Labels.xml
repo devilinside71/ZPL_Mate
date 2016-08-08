@@ -164,8 +164,13 @@
       ^XZ      
     </code>
   </label>
-  <label name="">
+  <label name="Datamatrix sample">
     <code>
+^XA
+^FO50,50
+^BXN,10,200,,,6
+^FH^FDTamas Laszlo_0D_0ASanatmetal Kft.^FS
+^XZ      
     </code>
   </label>
   <label name="">
