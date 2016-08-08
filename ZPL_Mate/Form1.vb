@@ -186,4 +186,8 @@ Public Class Form1
             End If
         End If
     End Sub
+
+    Private Sub ButtonZPLGuide_Click(sender As Object, e As EventArgs) Handles ButtonZPLGuide.Click
+        Process.Start("ZPL Programming Guide.pdf")
+    End Sub
 End Class
