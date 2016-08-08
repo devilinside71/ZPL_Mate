@@ -173,8 +173,13 @@
       ^XZ      
     </code>
   </label>
-  <label name="">
+  <label name="GS1 datamatrix sample">
     <code>
+      ^XA
+      ^BXN,7,200,,,,@
+      ^FX GS1: (90)SE000(250)1234567890 
+      ^FD@190SE000@d0292501234567890^FS
+      ^XZ      
     </code>
   </label>
   <label name="">
