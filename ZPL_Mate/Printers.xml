@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <printers>
+  <printer name="WIWE ZT410">
+    <winname>ZDesigner ZT410-300dpi ZPL</winname>
+  </printer>
   <printer name="Marika GC420t ZPL">
     <winname>GC420T</winname>
   </printer>
