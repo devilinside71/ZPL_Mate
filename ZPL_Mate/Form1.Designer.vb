@@ -65,6 +65,7 @@ Partial Class Form1
         Me.ButtonPreview = New System.Windows.Forms.Button()
         Me.ButtonPrint = New System.Windows.Forms.Button()
         Me.ComboBoxPrinter = New System.Windows.Forms.ComboBox()
+        Me.ButtonZPLGuide = New System.Windows.Forms.Button()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -72,7 +73,6 @@ Partial Class Form1
         Me.NumericUpDownW = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDownH = New System.Windows.Forms.NumericUpDown()
         Me.PictureBoxLabel = New System.Windows.Forms.PictureBox()
-        Me.ButtonZPLGuide = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -606,6 +606,16 @@ Partial Class Form1
         Me.ComboBoxPrinter.Size = New System.Drawing.Size(152, 21)
         Me.ComboBoxPrinter.TabIndex = 2
         '
+        'ButtonZPLGuide
+        '
+        Me.ButtonZPLGuide.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonZPLGuide.Location = New System.Drawing.Point(3, 231)
+        Me.ButtonZPLGuide.Name = "ButtonZPLGuide"
+        Me.ButtonZPLGuide.Size = New System.Drawing.Size(152, 72)
+        Me.ButtonZPLGuide.TabIndex = 3
+        Me.ButtonZPLGuide.Text = "ZPL Programming Guide"
+        Me.ButtonZPLGuide.UseVisualStyleBackColor = True
+        '
         'TableLayoutPanel5
         '
         Me.TableLayoutPanel5.ColumnCount = 2
@@ -690,16 +700,6 @@ Partial Class Form1
         Me.PictureBoxLabel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBoxLabel.TabIndex = 1
         Me.PictureBoxLabel.TabStop = False
-        '
-        'ButtonZPLGuide
-        '
-        Me.ButtonZPLGuide.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonZPLGuide.Location = New System.Drawing.Point(3, 231)
-        Me.ButtonZPLGuide.Name = "ButtonZPLGuide"
-        Me.ButtonZPLGuide.Size = New System.Drawing.Size(152, 72)
-        Me.ButtonZPLGuide.TabIndex = 3
-        Me.ButtonZPLGuide.Text = "ZPL Programming Guide"
-        Me.ButtonZPLGuide.UseVisualStyleBackColor = True
         '
         'Form1
         '

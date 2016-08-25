@@ -190,4 +190,26 @@ Public Class Form1
     Private Sub ButtonZPLGuide_Click(sender As Object, e As EventArgs) Handles ButtonZPLGuide.Click
         Process.Start("ZPL Programming Guide.pdf")
     End Sub
+
+
+    Private Sub TextBoxUTFInput_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxUTFInput.KeyPress
+        If e.KeyChar = Convert.ToChar(1) Then
+            DirectCast(sender, TextBox).SelectAll()
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub TextBoxZebraOutput_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxZebraOutput.KeyPress
+        If e.KeyChar = Convert.ToChar(1) Then
+            DirectCast(sender, TextBox).SelectAll()
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub TextBoxPrevSample_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxPrevSample.KeyPress
+        If e.KeyChar = Convert.ToChar(1) Then
+            DirectCast(sender, TextBox).SelectAll()
+            e.Handled = True
+        End If
+    End Sub
 End Class
