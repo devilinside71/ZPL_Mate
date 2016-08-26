@@ -57,6 +57,16 @@ Partial Class Form1
         Me.TextBoxH2 = New System.Windows.Forms.TextBox()
         Me.LabelCalcH1 = New System.Windows.Forms.Label()
         Me.LabelCalcH2 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel16 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel17 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.NumericUpDownTLFontHeight = New System.Windows.Forms.NumericUpDown()
+        Me.NumericUpDownTLStartY = New System.Windows.Forms.NumericUpDown()
+        Me.NumericUpDownTLRowGap = New System.Windows.Forms.NumericUpDown()
+        Me.TextBoxTextLines = New System.Windows.Forms.TextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.ComboBoxPrevSamples = New System.Windows.Forms.ComboBox()
@@ -88,6 +98,12 @@ Partial Class Form1
         Me.TableLayoutPanel13.SuspendLayout()
         Me.TableLayoutPanel14.SuspendLayout()
         Me.TableLayoutPanel15.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.TableLayoutPanel16.SuspendLayout()
+        Me.TableLayoutPanel17.SuspendLayout()
+        CType(Me.NumericUpDownTLFontHeight, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NumericUpDownTLStartY, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NumericUpDownTLRowGap, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
@@ -204,6 +220,7 @@ Partial Class Form1
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel7.Controls.Add(Me.GroupBox1, 0, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.GroupBox2, 0, 1)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel7.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
@@ -510,6 +527,123 @@ Partial Class Form1
         Me.LabelCalcH2.TabIndex = 3
         Me.LabelCalcH2.Text = "Label9"
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel16)
+        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 157)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(879, 148)
+        Me.GroupBox2.TabIndex = 1
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Textlines"
+        '
+        'TableLayoutPanel16
+        '
+        Me.TableLayoutPanel16.ColumnCount = 1
+        Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel16.Controls.Add(Me.TableLayoutPanel17, 0, 0)
+        Me.TableLayoutPanel16.Controls.Add(Me.TextBoxTextLines, 0, 1)
+        Me.TableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel16.Location = New System.Drawing.Point(3, 16)
+        Me.TableLayoutPanel16.Name = "TableLayoutPanel16"
+        Me.TableLayoutPanel16.RowCount = 2
+        Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.0!))
+        Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel16.Size = New System.Drawing.Size(873, 129)
+        Me.TableLayoutPanel16.TabIndex = 0
+        '
+        'TableLayoutPanel17
+        '
+        Me.TableLayoutPanel17.ColumnCount = 6
+        Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
+        Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
+        Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
+        Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
+        Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
+        Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
+        Me.TableLayoutPanel17.Controls.Add(Me.Label6, 0, 0)
+        Me.TableLayoutPanel17.Controls.Add(Me.Label7, 2, 0)
+        Me.TableLayoutPanel17.Controls.Add(Me.Label8, 4, 0)
+        Me.TableLayoutPanel17.Controls.Add(Me.NumericUpDownTLFontHeight, 1, 0)
+        Me.TableLayoutPanel17.Controls.Add(Me.NumericUpDownTLStartY, 3, 0)
+        Me.TableLayoutPanel17.Controls.Add(Me.NumericUpDownTLRowGap, 5, 0)
+        Me.TableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel17.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel17.Name = "TableLayoutPanel17"
+        Me.TableLayoutPanel17.RowCount = 1
+        Me.TableLayoutPanel17.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel17.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19.0!))
+        Me.TableLayoutPanel17.Size = New System.Drawing.Size(867, 19)
+        Me.TableLayoutPanel17.TabIndex = 0
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label6.Location = New System.Drawing.Point(78, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(63, 19)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "Font height:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label7.Location = New System.Drawing.Point(387, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(42, 19)
+        Me.Label7.TabIndex = 1
+        Me.Label7.Text = "Start Y:"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label8.Location = New System.Drawing.Point(664, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(53, 19)
+        Me.Label8.TabIndex = 2
+        Me.Label8.Text = "Row gap:"
+        '
+        'NumericUpDownTLFontHeight
+        '
+        Me.NumericUpDownTLFontHeight.Location = New System.Drawing.Point(147, 3)
+        Me.NumericUpDownTLFontHeight.Name = "NumericUpDownTLFontHeight"
+        Me.NumericUpDownTLFontHeight.Size = New System.Drawing.Size(120, 20)
+        Me.NumericUpDownTLFontHeight.TabIndex = 3
+        Me.NumericUpDownTLFontHeight.Value = New Decimal(New Integer() {20, 0, 0, 0})
+        '
+        'NumericUpDownTLStartY
+        '
+        Me.NumericUpDownTLStartY.Location = New System.Drawing.Point(435, 3)
+        Me.NumericUpDownTLStartY.Name = "NumericUpDownTLStartY"
+        Me.NumericUpDownTLStartY.Size = New System.Drawing.Size(120, 20)
+        Me.NumericUpDownTLStartY.TabIndex = 4
+        Me.NumericUpDownTLStartY.Value = New Decimal(New Integer() {50, 0, 0, 0})
+        '
+        'NumericUpDownTLRowGap
+        '
+        Me.NumericUpDownTLRowGap.Location = New System.Drawing.Point(723, 3)
+        Me.NumericUpDownTLRowGap.Name = "NumericUpDownTLRowGap"
+        Me.NumericUpDownTLRowGap.Size = New System.Drawing.Size(120, 20)
+        Me.NumericUpDownTLRowGap.TabIndex = 5
+        Me.NumericUpDownTLRowGap.Value = New Decimal(New Integer() {2, 0, 0, 0})
+        '
+        'TextBoxTextLines
+        '
+        Me.TextBoxTextLines.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBoxTextLines.Location = New System.Drawing.Point(3, 28)
+        Me.TextBoxTextLines.Multiline = True
+        Me.TextBoxTextLines.Name = "TextBoxTextLines"
+        Me.TextBoxTextLines.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.TextBoxTextLines.Size = New System.Drawing.Size(867, 98)
+        Me.TextBoxTextLines.TabIndex = 1
+        '
         'TabPage3
         '
         Me.TabPage3.Controls.Add(Me.TableLayoutPanel3)
@@ -731,6 +865,14 @@ Partial Class Form1
         Me.TableLayoutPanel14.PerformLayout()
         Me.TableLayoutPanel15.ResumeLayout(False)
         Me.TableLayoutPanel15.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.TableLayoutPanel16.ResumeLayout(False)
+        Me.TableLayoutPanel16.PerformLayout()
+        Me.TableLayoutPanel17.ResumeLayout(False)
+        Me.TableLayoutPanel17.PerformLayout()
+        CType(Me.NumericUpDownTLFontHeight, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NumericUpDownTLStartY, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NumericUpDownTLRowGap, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
@@ -796,4 +938,14 @@ Partial Class Form1
     Friend WithEvents LabelCalcH1 As Label
     Friend WithEvents LabelCalcH2 As Label
     Friend WithEvents ButtonZPLGuide As Button
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents TableLayoutPanel16 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel17 As TableLayoutPanel
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents NumericUpDownTLFontHeight As NumericUpDown
+    Friend WithEvents NumericUpDownTLStartY As NumericUpDown
+    Friend WithEvents NumericUpDownTLRowGap As NumericUpDown
+    Friend WithEvents TextBoxTextLines As TextBox
 End Class

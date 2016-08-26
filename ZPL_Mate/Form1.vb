@@ -21,6 +21,7 @@ Public Class Form1
         Call ZebraPrint.LoadLabels()
         ComboBoxResolution.SelectedIndex = 0
         ComboBoxUnit.SelectedIndex = 0
+        Call WriteTextLines()
     End Sub
     ''' <summary>
     ''' Prints label.
@@ -211,5 +212,39 @@ Public Class Form1
             DirectCast(sender, TextBox).SelectAll()
             e.Handled = True
         End If
+    End Sub
+
+
+    Private Sub TextBoxTextLines_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxTextLines.KeyPress
+        If e.KeyChar = Convert.ToChar(1) Then
+            DirectCast(sender, TextBox).SelectAll()
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub NumericUpDownTLFontHeight_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDownTLFontHeight.ValueChanged
+        Call WriteTextLines()
+    End Sub
+
+
+    Private Sub WriteTextLines()
+        Dim intTLYs(5) As Integer
+        Dim i As Integer
+        Dim intY As Integer
+        TextBoxTextLines.Text = "^CFT," & NumericUpDownTLFontHeight.Value & ",15" & vbCrLf
+        For i = 0 To 4
+            intY = NumericUpDownTLStartY.Value + i * NumericUpDownTLFontHeight.Value + i * NumericUpDownTLRowGap.Value
+
+            TextBoxTextLines.Text = TextBoxTextLines.Text & "^FT50," & intY & "^FH^FDTEXTLINE" & i & "^FS" & vbCrLf
+        Next
+
+    End Sub
+
+    Private Sub NumericUpDownTLStartY_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDownTLStartY.ValueChanged
+        Call WriteTextLines()
+    End Sub
+
+    Private Sub NumericUpDownTLRowGap_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDownTLRowGap.ValueChanged
+        Call WriteTextLines()
     End Sub
 End Class
