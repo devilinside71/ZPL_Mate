@@ -99,8 +99,13 @@ Public Class Form1
     Private Sub ButtonPrint_Click_1(sender As Object, e As EventArgs) Handles ButtonPrint.Click
         Dim strPrinter As String
         Dim res As String
+        strPrinter = ComboBoxPrinter.Text
+        Try
+            strPrinter = ZebraPrint.PrinterWinNames(ComboBoxPrinter.SelectedIndex)
+        Catch ex As Exception
 
-        strPrinter = ZebraPrint.PrinterWinNames(ComboBoxPrinter.SelectedIndex)
+        End Try
+        Debug.Print("Printer:" & strPrinter)
         res = ZebraPrint.SendStringToPrinter(strPrinter, TextBoxPrevSample.Text)
     End Sub
 
@@ -228,11 +233,10 @@ Public Class Form1
 
 
     Private Sub WriteTextLines()
-        Dim intTLYs(5) As Integer
         Dim i As Integer
         Dim intY As Integer
         TextBoxTextLines.Text = "^CFT," & NumericUpDownTLFontHeight.Value & ",15" & vbCrLf
-        For i = 0 To 4
+        For i = 0 To 9
             intY = NumericUpDownTLStartY.Value + i * NumericUpDownTLFontHeight.Value + i * NumericUpDownTLRowGap.Value
 
             TextBoxTextLines.Text = TextBoxTextLines.Text & "^FT50," & intY & "^FH^FDTEXTLINE" & i & "^FS" & vbCrLf
