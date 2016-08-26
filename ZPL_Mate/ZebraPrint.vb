@@ -268,6 +268,7 @@ Public Class ZebraPrint
     ''' Create 1 line code from multiline code
     ''' </summary>
     ''' <param name="multiline_zpl_code"></param>
+    ''' <param name="replaceCFT">Replace ^CFT with ^CF code for better preview</param>
     ''' <returns>ZPL codes in 1 line</returns>
     Public Shared Function GetZPLcodeOneLine(multiline_zpl_code As String, Optional replaceCFT As Boolean = True) As String
         Dim res As String
@@ -300,6 +301,7 @@ Public Class ZebraPrint
     ''' <param name="label_width">Label width in inch</param>
     ''' <param name="label_height">Label height in inch</param>
     ''' <param name="format">Output format (PDF or PNG)</param>
+    ''' <param name="replaceCFT">Replace ^CFT with ^CF code for better preview</param>
     Public Shared Function DownloadLabelaryImage(zpl_code As String, label_width As Integer, label_height As Integer, format As ZebraPrintLabelFormat, Optional replaceCFT As Boolean = True) As String
         Dim strOneLineCode As String
         Dim strExt As String
