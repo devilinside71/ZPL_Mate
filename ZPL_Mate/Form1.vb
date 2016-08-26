@@ -70,9 +70,6 @@ Public Class Form1
 
 
     End Sub
-    Private Sub ButtonPrint_Click(sender As Object, e As EventArgs)
-        Call ZPLPrint("Almásrétes", 0, 0)
-    End Sub
 
     Private Sub ButtonUtf2Zebra_Click(sender As Object, e As EventArgs) Handles ButtonUtf2Zebra.Click
         Dim strText As String
@@ -105,7 +102,7 @@ Public Class Form1
         Catch ex As Exception
 
         End Try
-        Debug.Print("Printer:" & strPrinter)
+        'Debug.Print("Printer:" & strPrinter)
         res = ZebraPrint.SendStringToPrinter(strPrinter, TextBoxPrevSample.Text)
     End Sub
 
@@ -232,16 +229,18 @@ Public Class Form1
     End Sub
 
 
+    ''' <summary>
+    ''' Writes textlines with calulated Y values
+    ''' </summary>
     Private Sub WriteTextLines()
         Dim i As Integer
         Dim intY As Integer
+
         TextBoxTextLines.Text = "^CFT," & NumericUpDownTLFontHeight.Value & ",15" & vbCrLf
         For i = 0 To 9
             intY = NumericUpDownTLStartY.Value + i * NumericUpDownTLFontHeight.Value + i * NumericUpDownTLRowGap.Value
-
             TextBoxTextLines.Text = TextBoxTextLines.Text & "^FT50," & intY & "^FH^FDTEXTLINE" & i & "^FS" & vbCrLf
         Next
-
     End Sub
 
     Private Sub NumericUpDownTLStartY_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDownTLStartY.ValueChanged
