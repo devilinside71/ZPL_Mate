@@ -632,7 +632,6 @@ Partial Class Form1
         Me.NumericUpDownTLRowGap.Name = "NumericUpDownTLRowGap"
         Me.NumericUpDownTLRowGap.Size = New System.Drawing.Size(120, 20)
         Me.NumericUpDownTLRowGap.TabIndex = 5
-        Me.NumericUpDownTLRowGap.Value = New Decimal(New Integer() {2, 0, 0, 0})
         '
         'TextBoxTextLines
         '

@@ -1,8 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <printers>
-  <printer name="WIWE ZT410">
-    <winname>ZT410W</winname>
-  </printer>
   <printer name="Marika GC420t ZPL">
     <winname>GC420T</winname>
   </printer>
@@ -17,5 +14,8 @@
   </printer>
   <printer name="SósT hálózatról">
     <winname>\\SM-TSOS3.ad.sanatmetal.hu\TLP2824A</winname>
+  </printer>
+  <printer name="WIWE ZT410">
+    <winname>ZT410W</winname>
   </printer>  
 </printers> 

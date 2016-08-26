@@ -5,6 +5,7 @@ Imports System.Text
 Imports System.Web
 Imports System.Xml
 Imports System.Net
+Imports System.Text.RegularExpressions
 'http://labelary.com/viewer.html
 Public Class ZebraPrint
 
@@ -268,14 +269,24 @@ Public Class ZebraPrint
     ''' </summary>
     ''' <param name="multiline_zpl_code"></param>
     ''' <returns>ZPL codes in 1 line</returns>
-    Public Shared Function GetZPLcodeOneLine(multiline_zpl_code As String) As String
+    Public Shared Function GetZPLcodeOneLine(multiline_zpl_code As String, Optional replaceCFT As Boolean = True) As String
         Dim res As String
         Dim i As Integer
+        Dim strLine As String
+
         Dim strArray As String() = multiline_zpl_code.Split(New String() {Environment.NewLine}, StringSplitOptions.None)
 
         res = vbNullString
         For i = LBound(strArray) To UBound(strArray)
-            res = res & Trim(strArray(i))
+            strLine = Trim(strArray(i))
+            If replaceCFT Then
+                If Left(strLine, 4) = "^CFT" Then
+                    Dim cftP As String() = strLine.Split(",")
+                    strLine = "^CF0," & CStr(CInt(CInt(cftP(1)) * 1.2))
+                End If
+            End If
+            'res = res & Trim(strArray(i))
+            res = res & strLine
         Next
         res = res.Replace(vbCrLf, vbNullString)
         res = res.Replace(vbNewLine, vbNullString)
@@ -289,7 +300,7 @@ Public Class ZebraPrint
     ''' <param name="label_width">Label width in inch</param>
     ''' <param name="label_height">Label height in inch</param>
     ''' <param name="format">Output format (PDF or PNG)</param>
-    Public Shared Function DownloadLabelaryImage(zpl_code As String, label_width As Integer, label_height As Integer, format As ZebraPrintLabelFormat) As String
+    Public Shared Function DownloadLabelaryImage(zpl_code As String, label_width As Integer, label_height As Integer, format As ZebraPrintLabelFormat, Optional replaceCFT As Boolean = True) As String
         Dim strOneLineCode As String
         Dim strExt As String
         strOneLineCode = GetZPLcodeOneLine(zpl_code)
@@ -324,4 +335,5 @@ Public Class ZebraPrint
         End Try
         Return "label" & strExt
     End Function
+
 End Class
