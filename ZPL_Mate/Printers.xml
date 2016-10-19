@@ -17,5 +17,8 @@
   </printer>
   <printer name="WIWE ZT410">
     <winname>ZT410W</winname>
-  </printer>  
+  </printer>
+  <printer name="WIWE TLP2824">
+    <winname>TLP2824</winname>
+  </printer>
 </printers> 

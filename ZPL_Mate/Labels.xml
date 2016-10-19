@@ -298,4 +298,24 @@
       ^XZ            
     </code>
   </label>
+  <label name="WIWE ID">
+    <code>
+      ^XA
+      ^LH10,40
+      ^FX Barcode Code128, Code39 is too wide
+      ^FT40,35^BY2^BCN,60,Y,N,N^FDVONALKOD^FS
+      ^PQLABELQTY
+      ^XZ
+    </code>
+  </label>
+  <label name="WIWE ID Center in block">
+    <code>
+      ^XA
+      ^LH10,40
+      ^FX Barcode Code128, Code39 is too wide
+      ^FT0,35^FH^FB400,3,0,C^BY2^BCN,60,Y,N,N^FDVONALKOD^FS
+      ^PQLABELQTY
+      ^XZ
+    </code>
+  </label>
 </labels>
