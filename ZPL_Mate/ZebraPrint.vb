@@ -5,7 +5,6 @@ Imports System.Text
 Imports System.Web
 Imports System.Xml
 Imports System.Net
-Imports System.Text.RegularExpressions
 'http://labelary.com/viewer.html
 Public Class ZebraPrint
 
