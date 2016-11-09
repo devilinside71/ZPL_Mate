@@ -142,15 +142,15 @@
       ^XA
       ^LH10,40
       ^FX Barcode Code128, Code39 is too wide
-      ^FT30,35^BY4^BCN,120,Y,N,N^FDVONALKOD^FS
+      ^FT30,95^BY4^BCN,110,Y,N,N^FDVONALKOD^FS
       ^FX UTF-8 font selection: in printer's E memory
       ^CWT,E:TT0003M_.FNT
       ^CFT,60,40
       ^CI28
       ^FX DOLGOZONEV
-      ^FT20,230^FH^FB360,2,0,C^FDDOLGOZOUTF^FS
+      ^FT20,245^FH^FB400,2,0,C^FDDOLGOZOUTF^FS
       ^FX Bold miatt nehany ponttal arrebb ugyanaz
-      ^FT21,230^FH^FB360,2,0,C^FDDOLGOZOUTF^FS
+      ^FT21,245^FH^FB400,2,0,C^FDDOLGOZOUTF^FS
       ^PQ1
       ^XZ
     </code>
@@ -250,7 +250,7 @@
 
       ^FS
       ^FX Top section underline
-      ^FO0,100
+      ^FO15,110
       ^GB700,1,3
       ^FS
 
