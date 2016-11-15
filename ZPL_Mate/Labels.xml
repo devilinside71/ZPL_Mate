@@ -121,6 +121,25 @@
       ^XZ
     </code>
   </label>
+  <label name="Készáru kis doboz Marika GC420t">
+    <code>
+      ^XA
+      ^LH10,40
+      ^FX Barcode Code128, Code39 is too wide
+      ^FT64,35^BY3^BCN,110,N,N,N^FDN07406^FS
+      ^FX UTF-8 font selection: in printer's E memory
+      ^CWT,E:TT0003M_.FNT
+      ^CFT,90,70
+      ^CI28
+      ^FX POLCNEV
+      ^FT30,320^FH^FB400,3,0,C^FDN07406^FS
+      ^FX Bold miatt 2 ponttal arrebb ugyanaz
+      ^FT32,320^FH^FB400,3,0,C^FDN07406^FS
+      ^FT34,320^FH^FB400,3,0,C^FDN07406^FS
+      ^PQLABELQTY
+      ^XZ
+    </code>
+  </label>  
   <label name="Csomagolóanyag raktár">
     <code>
       ^XA
